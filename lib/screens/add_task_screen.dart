@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todoe/models/task.dart';
 import 'package:provider/provider.dart';
-import 'package:todoe/models/Task.dart';
 import 'package:todoe/models/task_data.dart';
 
 class AddTaskScreen extends StatelessWidget {
@@ -54,9 +52,9 @@ class AddTaskScreen extends StatelessWidget {
                       fontFamily: "Janna", fontSize: 25.0, color: Colors.white),
                 ),
                 onPressed: () {
-                  Provider.of<TaskData>(context, listen: false)
-                      .addTask(newTaskTitle);
-
+//                  Provider.of<TaskData>(context, listen: false)
+//                      .addTask(newTaskTitle);
+                  print(newTaskTitle);
                   Navigator.pop(context);
                 },
               )

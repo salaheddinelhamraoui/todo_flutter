@@ -5,6 +5,8 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:todoe/models/Task.dart';
 
+import 'TaskTile2.dart';
+
 class DatabaseHelper {
   static final DatabaseHelper _instance = new DatabaseHelper.internal();
 
@@ -37,8 +39,8 @@ class DatabaseHelper {
 
   initDb() async {
     Directory documentDirectory = await getApplicationDocumentsDirectory();
-    String path = join(
-        documentDirectory.path, "maindb.db"); //home://directory/files/maindb.db
+    String path = join(documentDirectory.path,
+        "maindb45.db"); //home://directory/files/maindb.db
 
     var ourDb = await openDatabase(path, version: 1, onCreate: _onCreate);
     return ourDb;
@@ -59,7 +61,7 @@ class DatabaseHelper {
   //CRUD - CREATE, READ, UPDATE , DELETE
 
   //Insertion
-  Future<int> saveTask(Task task) async {
+  Future<int> saveTask(TaskTile2 task) async {
     var dbClient = await db;
     int res = await dbClient.insert("$tableName", task.toMap());
     return res;
@@ -82,8 +84,8 @@ class DatabaseHelper {
   Future<List> getTaskCategory(String category) async {
     var dbClient = await db;
 
-    var result = await dbClient
-        .rawQuery("SELECT * FROM $tableName WHERE $columnCategory = $category");
+    var result = await dbClient.rawQuery(
+        "SELECT * FROM $tableName WHERE $columnCategory = '$category'");
     if (result.length == 0) return null;
     return result.toList();
   }

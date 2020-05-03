@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:todoe/db/databsehelper.dart';
 import 'package:todoe/screens/menu.dart';
-import 'package:todoe/widgets/tasks_tile.dart';
 import 'package:todoe/widgets/tasks_list.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'add_task_screen.dart';
-import 'package:todoe/models/Task.dart';
 import 'package:provider/provider.dart';
 import 'package:todoe/models/task_data.dart';
 
